@@ -68,7 +68,7 @@ _Branch_: cross_compile
 
 _Hints_:
 
-* As deployment is done to a Windows app on Azure we need to cross-compile the app. The relevant statement is available in the file.
+* As deployment is done to a Windows app on Azure we need to cross-compile the app. The relevant statement is available in the file `crosscompile.sh`.
 * Do not forget to execute `chmod +x` on the file to make it executable.
 * Do not forget to set the `defaultExecutablePath` to `server.exe` in the `host.json`.
 * In order to be able to proceed with the local scenario, we override the setting in `host.json` the setting in the `local.settings.json` via setting teh parameter `AzureFunctionsJobHost__customHandler__description__defaultExecutablePath` to the value `server` (Remark: This can be done with any parameter in `host.json` using the parameter path separated by `__`).
