@@ -20,6 +20,11 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, message)
 }
 
+func allHandler(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Fprint(w, r.URL.Path)
+}
+
 type InvokeRequest struct {
 	Data     map[string]json.RawMessage
 	Metadata map[string]interface{}
@@ -61,6 +66,7 @@ func main() {
 	}
 
 	http.HandleFunc("/api/hello", helloHandler)
+	http.HandleFunc("/api/", allHandler)
 	http.HandleFunc("/queueTrigger", queueTriggerHandler)
 	log.Printf("About to listen on %s. Go to http://127.0.0.1%s", listenAddr, listenAddr)
 	log.Fatal(http.ListenAndServe(listenAddr, nil))
